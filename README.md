@@ -56,3 +56,8 @@ This is a slightly large piece of code that ensures smooth functioning of the Lo
    <p align = "center">
      <img src = "Screenshots/Health3.png"/>
    </p>
+
+   Using `Instant::now()` and calling `.elapsed()`, we record the server response time. We check if the server is responding by sending a `GET` request to each server with a set timeout and then update the server response time.  
+   The subtraction from `lb.servers[index].connections` is done as to not count the connection opened by the health checker.
+
+   
