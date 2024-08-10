@@ -15,7 +15,7 @@ A Load Balancer distributes incoming network traffic and distributes them across
 A Load Balancer can be physical or a software. It can be further classified base on which layer of the [OSI model](https://en.wikipedia.org/wiki/OSI_model) they operate at.
 
 ## Title
-As part of the [Tilde 3.0 Summer mentorship program](https://homebrew.hsp-ec.xyz/posts/history/#Tilde), the Bal.rs (Pronounced: `/ˈbɔːləz/`) team have built a simple L7 Load Balancer in Rust, chosen due to it's performance and safety while provding low level control over the system.  
+As part of the [Tilde 3.0 Summer mentorship program](https://homebrew.hsp-ec.xyz/posts/history/#Tilde), the Bal.rs (Pronounced: `/ˈbɔːləz/`) team have built a simple L7 Load Balancer in Rust. Rust was chosen due to it's performance and safety while provding low level control over the system.  
 
 There are 3 key components of our Load Balancer:
 - **Listener**: Listens for incoming HTTP requests.
@@ -32,12 +32,10 @@ In this code snippet, we create a `TcpListener` instance to listen for incoming 
 If the listener is bound to the Load Balancer successfully, we return the listener object for further use or else display the error encountered and exit.
 
 ### Routing the Connections
-PEE
+TODO: Piss
 
 ### Fault Tolerence
 This is a slightly large piece of code that ensures smooth functioning of the Load Balancer. So, let's break it down.
-
-1. **Server Health Check**
    <p align = "center">
      <img src = "Screenshots/Health1.png"/>
    </p>
@@ -65,7 +63,7 @@ This is a slightly large piece of code that ensures smooth functioning of the Lo
    This `match` block is used to handle the result of the HTTP request sent by the health checker.  
    If the HTTP request is completed sucessfully, we check if the response is an error code(like 404) or if the maximum connections limit is exceeded. This leads to marking of a server as dead and will not be used by the Load Balancer until it is checked again and marked as alive by the health checker.
 
-   This marks the end of the Health Checker. after this, all the server tasks are awaited on to be periodically executed.  
+   This marks the end of the Health Checker. After this, all the server tasks are awaited on to be periodically executed.  
    Here is a simple flowchart of how health checking process:
    <p align = "center">
      <img src = "Screenshots/HealthFlow.png"/>
