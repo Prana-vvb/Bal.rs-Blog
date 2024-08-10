@@ -23,16 +23,67 @@ There are 3 key components of our Load Balancer:
 - **Fault Tolerence**: Makes sure the Load Balancer handles any faults gracefully.
 
 ### Listener
-We have used Rust's [`tokio`](tokio.rs) crate to handle asynchronous networking and are using `TcpListener` to listen for incoming connections
+We have used Rust's [`tokio`](https://tokio.rs) crate to handle asynchronous processing and the [`hyper`](https://hyper.rs) crate for networking. Tokio's `TcpListener` is used to listen for incoming connections
 <p align = "center">
   <img src = "Screenshots/Listener.png"/>
 </p>
 
 In this code snippet, we create a `TcpListener` instance to listen for incoming traffic and set it to listen on the address of the Load Balancer.  
-If the listener is bound to the Load Balancer successfully, we return the listener object for further use or else display the error encountered and exit.
+If the listener is bound to the Load Balancer successfully, we return the listener object for passing incoming requests to the `handle_request` function or else the error encountered is displayed.
 
 ### Routing the Connections
-TODO: Piss
+There are 3 functions dealing with client requests.
+
+1. Handling incoming requests: `handle_request` function
+   <p align = "center">
+     <img src = "Screenshots/Handle.png"/>
+   </p>
+
+   We lock the `LoadBalancer` instance to access the server list and filter out any dead servers.  
+   The function then tries to pass the request to the `get_request` function. If this fails, a message is logged and the loop restarts.  
+   If there are no available servers, a HTTP 500 response is returned.
+
+2. Forwarding requests to server: `get_request` function
+   <p align = "center">
+     <img src = "Screenshots/Get1.png"/>
+   </p>
+
+   Gets indexes of the servers and selects the server to be used according to the specified algorithm.
+   <p align = "center">
+     <img src = "Screenshots/Get2.png"/>
+   </p>
+
+   Here, the server URL is constructed. Requests are then forwarded to the server using the `send_request` function.
+   Along with that, a timer is started to measure server response time. The server response is stored in the `data` variable.
+   <p align = "center">
+     <img src = "Screenshots/Get3.png"/>
+   </p>
+
+   Here, we handle variants of the server response. If we get a successful response, we return the response data or else mark the corresponding server as dead and return `None`.
+
+4. Retrieve server response: `send_request` function
+   <p align = "center">
+     <img src = "Screenshots/Send1.png"/>
+   </p>
+
+   Parse the URL from the request and extract host and port from it. The port defaults to 80 if not specified.
+   Then format the address to a string for a TCP connection.
+   <p align = "center">
+     <img src = "Screenshots/Send2.png"/>
+   </p>
+
+   Establish a TCP connection to the formatted address and wrap it in a tokio IO adapter so that it can be used with `hyper`.  
+   A `hyper` client is then initialised using a HTTP/1 handshake.
+   <p align = "center">
+     <img src = "Screenshots/Send3.png"/>
+   </p>
+
+   The HTTP request is prepared with the given URL and `HOST` header and sent using the `hyper` client.
+   <p align = "center">
+     <img src = "Screenshots/Send4.png"/>
+   </p>
+   
+   The server response body is then collected in chunks and appended to `full_body`. The complete response is then converted to `Bytes` and returned.
 
 ### Fault Tolerence
 This is a slightly large piece of code that ensures smooth functioning of the Load Balancer. So, let's break it down.
@@ -67,4 +118,6 @@ This is a slightly large piece of code that ensures smooth functioning of the Lo
    Here is a simple flowchart of how health checking process:
    <p align = "center">
      <img src = "Screenshots/HealthFlow.png"/>
+     <img src = "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGkyeTM3eHAxdTB0aDVlcmwzN3Mwd3RxdnJ0N2IzYzl1NDlyN2JlYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/psU5B2R73mbf6YlMha/giphy.gif"/>
+     <br/>Health checker reports as displayed in the terminal
    </p>
