@@ -25,3 +25,8 @@ There are 3 key components of our Load Balancer:
 
 ### Listener
 We have used Rust's [`tokio`](tokio.rs) crate to handle asynchronous networking and are using `TcpListener` to listen for incoming connections
+
+<p align = "center">
+  <img src = "screenshots/Listener.png"/>
+</p>
+
