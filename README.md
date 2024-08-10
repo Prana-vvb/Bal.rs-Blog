@@ -12,11 +12,10 @@ A Load Balancer distributes incoming network traffic and distributes them across
   <img src = "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnc4MmNkNGkzbDZ6ZG1icW44aG9xZGg2NjNwZmdrbG1xeWNxMmZmZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JAC4be8Wr01Lp8dyop/giphy.gif"/>
 </p>
 
-A Load Balancer can be a physical one or a software. It can be further classified base on which layer of the [OSI model](https://en.wikipedia.org/wiki/OSI_model) they operate at.
+A Load Balancer can be physical or a software. It can be further classified base on which layer of the [OSI model](https://en.wikipedia.org/wiki/OSI_model) they operate at.
 
 ## Title
-As part of the Tilde 3.0 Summer mentorship program, we have built a simple L7 Load Balancer in Rust, chosen due to it's performance and safety while provding low level control.  
-The source code is available on [Github](https://github.com/homebrew-ec-foss/bal.rs).
+As part of the [Tilde 3.0 Summer mentorship program](https://homebrew.hsp-ec.xyz/posts/history/#Tilde), the Bal.rs (Pronounced: `/ˈbɔːləz/`) team have built a simple L7 Load Balancer in Rust, chosen due to it's performance and safety while provding low level control over the system.  
 
 There are 3 key components of our Load Balancer:
 - **Listener**: Listens for incoming HTTP requests.
@@ -25,8 +24,19 @@ There are 3 key components of our Load Balancer:
 
 ### Listener
 We have used Rust's [`tokio`](tokio.rs) crate to handle asynchronous networking and are using `TcpListener` to listen for incoming connections
-
 <p align = "center">
-  <img src = "screenshots/Listener.png"/>
+  <img src = "Screenshots/Listener.png"/>
 </p>
 
+In this code snippet, we create a `TcpListener` instance to listen for incoming traffic and set it to listen on the address of the Load Balancer.  
+If the listener is bound to the Load Balancer successfully, we return the listener object for further use or else display the error encountered and exit.
+
+### Routing the Connections
+
+### Fault Tolerence
+This is a slightly large piece of code that ensures smooth functioning of the Load Balancer. So, let's break it down.
+
+1. **Health Check**
+   <p align = "center">
+     <img = "Screenshots/Health1.png"/>
+   </p>
