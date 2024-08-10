@@ -123,6 +123,9 @@ This is a slightly large piece of code that ensures smooth functioning of the Lo
    Here is a simple flowchart of how health checking process:
    <p align = "center">
      <img src = "Screenshots/HealthFlow.png"/>
+   </p>
+
+   Health checker reports as displayed in the terminal:
+   <p align = "center">
      <img src = "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGkyeTM3eHAxdTB0aDVlcmwzN3Mwd3RxdnJ0N2IzYzl1NDlyN2JlYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/psU5B2R73mbf6YlMha/giphy.gif"/>
-     <br/>Health checker reports as displayed in the terminal
    </p>
