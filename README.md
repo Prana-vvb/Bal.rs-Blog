@@ -14,7 +14,7 @@ A Load Balancer distributes incoming network traffic and distributes them across
 
 A Load Balancer can be physical or a software. It can be further classified base on which layer of the [OSI model](https://en.wikipedia.org/wiki/OSI_model) they operate at.
 
-## Title
+## Technical Details
 As part of the [Tilde 3.0 Summer mentorship program](https://homebrew.hsp-ec.xyz/posts/history/#Tilde), the Bal.rs (Pronounced: `/ˈbɔːləz/`) team have built a simple L7 Load Balancer in Rust. Rust was chosen due to it's performance and safety while provding low level control over the system.  
 
 There are 3 key components of our Load Balancer:
@@ -40,8 +40,13 @@ There are 3 functions dealing with client requests.
    </p>
 
    We lock the `LoadBalancer` instance to access the server list and filter out any dead servers.  
-   The function then tries to pass the request to the `get_request` function. If this fails, a message is logged and the loop restarts.  
+   The function then tries to pass the request to the `get_request` function. If this fails, a message is logged and the loop restarts.
    If there are no available servers, a HTTP 500 response is returned.
+   
+   This is a dynamic fault tolerence system that reroutes an incoming request to a different server if one server is not available.
+   <p align = "center">
+     <img src = "Screenshots/FaultFlow.png"/>
+   </p>
 
 2. Forwarding requests to server: `get_request` function
    <p align = "center">
@@ -61,7 +66,7 @@ There are 3 functions dealing with client requests.
 
    Here, we handle variants of the server response. If we get a successful response, we return the response data or else mark the corresponding server as dead and return `None`.
 
-4. Retrieve server response: `send_request` function
+3. Retrieve server response: `send_request` function
    <p align = "center">
      <img src = "Screenshots/Send1.png"/>
    </p>
