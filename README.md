@@ -53,4 +53,6 @@ This is a slightly large piece of code that ensures smooth functioning of the Lo
 
    Inside the task for each server, we retrieve and update relevant server data.
 
-   
+   <p align = "center">
+     <img src = "Screenshots/Health3.png"/>
+   </p>
