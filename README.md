@@ -32,6 +32,7 @@ In this code snippet, we create a `TcpListener` instance to listen for incoming 
 If the listener is bound to the Load Balancer successfully, we return the listener object for further use or else display the error encountered and exit.
 
 ### Routing the Connections
+PEE
 
 ### Fault Tolerence
 This is a slightly large piece of code that ensures smooth functioning of the Load Balancer. So, let's break it down.
@@ -42,7 +43,6 @@ This is a slightly large piece of code that ensures smooth functioning of the Lo
    </p>
    
    Here, we create variables to store the required configuration values and clone a `LoadBalancer` instance for further use.
-
    <p align = "center">
      <img src = "Screenshots/Health2.png"/>
    </p>
@@ -52,12 +52,21 @@ This is a slightly large piece of code that ensures smooth functioning of the Lo
    We create the required number of tasks using a for loop where `len` is the number of servers listed in the Load Balancer's configuration.
 
    Inside the task for each server, we retrieve and update relevant server data.
-
    <p align = "center">
      <img src = "Screenshots/Health3.png"/>
    </p>
 
    Using `Instant::now()` and calling `.elapsed()`, we record the server response time. We check if the server is responding by sending a `GET` request to each server with a set timeout and then update the server response time.  
    The subtraction from `lb.servers[index].connections` is done as to not count the connection opened by the health checker.
+   <p align = "center">
+     <img src = "Screenshots/Health4.png"/>
+   </p>
 
-   
+   This `match` block is used to handle the result of the HTTP request sent by the health checker.  
+   If the HTTP request is completed sucessfully, we check if the response is an error code(like 404) or if the maximum connections limit is exceeded. This leads to marking of a server as dead and will not be used by the Load Balancer until it is checked again and marked as alive by the health checker.
+
+   This marks the end of the Health Checker. after this, all the server tasks are awaited on to be periodically executed.  
+   Here is a simple flowchart of how health checking process:
+   <p align = "center">
+     <img src = "Screenshots/HealthFlow.png"/>
+   </p>
