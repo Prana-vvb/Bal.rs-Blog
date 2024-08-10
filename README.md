@@ -36,11 +36,21 @@ If the listener is bound to the Load Balancer successfully, we return the listen
 ### Fault Tolerence
 This is a slightly large piece of code that ensures smooth functioning of the Load Balancer. So, let's break it down.
 
-1. **Health Check**
+1. **Server Health Check**
    <p align = "center">
      <img src = "Screenshots/Health1.png"/>
    </p>
    
-   Here, we create variables to store the required configuration values and clone the `LoadBalancer` instance for further use.
+   Here, we create variables to store the required configuration values and clone a `LoadBalancer` instance for further use.
+
+   <p align = "center">
+     <img src = "Screenshots/Health2.png"/>
+   </p>
+
+   Spawn an asynchronous tokio task for the health checker and create a vector to hold other tokio tasks.  
+   Each task corresponds to the health check for each server. This is done to ensure all health checks happen simultaneously.
+   We create the required number of tasks using a for loop where `len` is the number of servers listed in the Load Balancer's configuration.
+
+   Inside the task for each server, we retrieve and update relevant server data.
 
    
