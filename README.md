@@ -38,5 +38,9 @@ This is a slightly large piece of code that ensures smooth functioning of the Lo
 
 1. **Health Check**
    <p align = "center">
-     <img = "Screenshots/Health1.png"/>
+     <img src = "Screenshots/Health1.png"/>
    </p>
+   
+   Here, we create variables to store the required configuration values and clone the `LoadBalancer` instance for further use.
+
+   
