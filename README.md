@@ -14,9 +14,41 @@ A Load Balancer distributes incoming network traffic and distributes them across
 
 A Load Balancer can be physical or a software. It can be further classified base on which layer of the [OSI model](https://en.wikipedia.org/wiki/OSI_model) they operate at.
 
-## Technical Details
-As part of the [Tilde 3.0 Summer mentorship program](https://homebrew.hsp-ec.xyz/posts/history/#Tilde), the Bal.rs (Pronounced: `/ˈbɔːləz/`) team have built a simple L7 Load Balancer in Rust. Rust was chosen due to it's performance and safety while provding low level control over the system.  
+As part of the [Tilde 3.0 Summer mentorship program](https://homebrew.hsp-ec.xyz/posts/history/#Tilde), the [Bal.rs](https://github.com/homebrew-ec-foss/bal.rs) (Pronounced: `/ˈbɔːləz/`) team have built a simple L7 Load Balancer in Rust. Rust was chosen due to it's performance and safety while provding low level control over the system.
 
+## Getting started with Bal.rs
+### Prerequisites
+- [**Rust compiler**](https://doc.rust-lang.org/book/ch01-01-installation.html)
+- [**Cargo package manager**](https://doc.rust-lang.org/book/ch01-01-installation.html)
+
+### Building the Application Locally
+Clone the [repository](https://github.com/homebrew-ec-foss/bal.rs) and build the application using `cargo`.
+```sh
+git clone https://github.com/homebrew-ec-foss/bal.rs
+cd bal.rs
+cargo build
+```
+For a production-ready build, you can use:
+```sh
+cargo build --release
+```
+
+### Using the Application
+After building, the main executable will be located in `/target/debug` or `/target/release` based on the build command used.
+Navigate to the directory and type
+```sh
+Balrs help start
+```
+in the terminal to get a list of available commands.
+
+Alternatively, from the root directory of Bal.rs, you can use:
+```sh
+cargo run help start
+```
+for the same result.
+
+
+## Technical Details
 There are 3 key components of our Load Balancer:
 - **Listener**: Listens for incoming HTTP requests.
 - **Routing**: Does the actual load balancing by forwarding the client request to the servers.
