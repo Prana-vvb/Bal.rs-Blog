@@ -47,8 +47,12 @@ cargo run help start
 ```
 for the same result.
 
+While you can configure the Load Balancer using the command line interface, more configuration options are available through the `config.yaml` file and multiple different config files can be created.  
+This feature enables the use of various configuration profiles without altering the original configuration. The desired profile can be specified through the CLI.
 
 ## Technical Details
+> Note that this includes only the `lb.rs` file which contains the actual Load Balancing code.
+
 There are 3 key components of our Load Balancer:
 - **Listener**: Listens for incoming HTTP requests.
 - **Routing**: Does the actual load balancing by forwarding the client request to the servers.
@@ -161,3 +165,19 @@ This is a slightly large piece of code that ensures smooth functioning of the Lo
    <p align = "center">
      <img src = "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGkyeTM3eHAxdTB0aDVlcmwzN3Mwd3RxdnJ0N2IzYzl1NDlyN2JlYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/psU5B2R73mbf6YlMha/giphy.gif"/>
    </p>
+
+## Experiences
+> This is a compilation of experiences shared by the Bal.rs mentees
+
+*"I decided to explore the field of networking during my vacation and wanted to work on some interesting projects. That's when I got involved with Tilde, working with creating a Layer 7 Load balancer using Rust. We started off in a simple way, getting familiar with Rust, and I quickly found myself enjoying the process. We had a bit of friendly competition within the team as we chose which layers to work on, ultimately developing basic versions of both Layer 4 and Layer 7 load balancers. As we progressed, we moved on to creating a full-fledged Layer 7 load balancer. The challenges we encountered pushed me to think from different perspectives, greatly enhancing my experience. The team's (mentors and peers) support and encouragement made it easy for me to collaborate effectively, making the entire journey both exciting and deeply engaging. I am happy to have worked with such a team."* - [Raahithya J](https://github.com/Raahithyajayaram)
+
+*"Building a load balancer in Rust over 4 weeks was my first deep dive into Rust, async programming, Hyper, and backend development. It was challenging yet rewarding, teaching me about concurrency, memory safety, and efficient traffic management. This project laid a solid foundation for future backend endeavors."* - [Pushkar GR](https://github.com/pushkar-gr)
+
+*"During the TILDE project, I collaborated on developing a user-friendly Load Balancer in Rust with multiple functionalities. This experience taught me valuable lessons in collaboration and problem-solving. It was enriching, as I met knowledgeable peers and seniors who inspired me to strive for more. Our mentors and seniors were incredibly supportive, providing valuable input for project improvements. I’m grateful to HSP for this opportunity."* - [Rohan Cyriac](https://github.com/rohancyriac029)
+
+*"TODO: Eat some(one's) nuts"* - [Pranav V Bhat](https://github.com/Prana-vvb)
+
+## Next Steps and Resources
+- [Rust essentials](https://www.rust-lang.org/)
+- [Basics of Load Balancing Algorithms](https://samwho.dev/load-balancing/)
+- [Another Rust Load Balancer](https://github.com/another-rust-load-balancer/another-rust-load-balancer)
