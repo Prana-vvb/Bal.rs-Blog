@@ -2,7 +2,7 @@
 Written By [Pranav V Bhat](github.com/Prana-vvb)  
 10 Aug 2024
 
-## Why does my load need to be balanced?
+## Why do I need a Load Balancer?
 Let's say you have a few servers and are hosting a website. Great! Soon your website becomes popular and gets a lot of visitors daily. All well and good until your servers start to become overwhelmed with requests and die.
 How to fix this? By putting a Load Balancer in between the clients and your servers.
 
