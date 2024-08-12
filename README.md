@@ -166,6 +166,9 @@ This is a slightly large piece of code that ensures smooth functioning of the Lo
      <img src = "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGkyeTM3eHAxdTB0aDVlcmwzN3Mwd3RxdnJ0N2IzYzl1NDlyN2JlYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/psU5B2R73mbf6YlMha/giphy.gif"/>
    </p>
 
+## Benchmarks
+We conducted several tests at different request rates per second (RPS), but had to drop further testing due to our hardware limitations.
+
 ## Experiences
 > This is a compilation of experiences shared by the Bal.rs mentees
 
