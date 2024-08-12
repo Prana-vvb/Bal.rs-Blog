@@ -156,7 +156,7 @@ This is a slightly large piece of code that ensures smooth functioning of the Lo
    If the HTTP request is completed sucessfully, we check if the response is an error code(like 404) or if the maximum connections limit is exceeded. This leads to marking of a server as dead and will not be used by the Load Balancer until it is checked again and marked as alive by the health checker.
 
    This marks the end of the Health Checker. After this, all the server tasks are awaited on to be periodically executed.  
-   Here is a simple flowchart of how health checking process:
+   Here is a simple flowchart of how the health checking process works:
    <p align = "center">
      <img src = "Screenshots/HealthFlow.png"/>
    </p>
