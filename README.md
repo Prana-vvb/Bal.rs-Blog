@@ -175,7 +175,7 @@ This is a slightly large piece of code that ensures smooth functioning of the Lo
 
 *"During the TILDE project, I collaborated on developing a user-friendly Load Balancer in Rust with multiple functionalities. This experience taught me valuable lessons in collaboration and problem-solving. It was enriching, as I met knowledgeable peers and seniors who inspired me to strive for more. Our mentors and seniors were incredibly supportive, providing valuable input for project improvements. I’m grateful to HSP for this opportunity."* - [**Rohan Cyriac**](https://github.com/rohancyriac029)
 
-*"This project came as a pleasant surprise to me, as I had not applied for it. Learning a completely new language while working on a rather complicated project was very challenging indeed but also very satisfying. I got to meet and work with some really great people, and their support made the learning curve much smoother. In the end, the experience was truly memorable and I learned a lot"* - [**Pranav V Bhat**](https://github.com/Prana-vvb)
+*"This project came as a very pleasant surprise to me, as I had not applied for it. Learning a completely new language while working on a rather complicated project was very challenging indeed but also very satisfying. I got to meet and work with some really great people, and their support made the learning curve much smoother. In the end, the experience was truly memorable and I learned a lot"* - [**Pranav V Bhat**](https://github.com/Prana-vvb)
 
 ## Next Steps and Resources
 - [Rust essentials](https://www.rust-lang.org/)
