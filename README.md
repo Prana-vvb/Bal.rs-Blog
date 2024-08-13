@@ -167,9 +167,17 @@ This is a slightly large piece of code that ensures smooth functioning of the Lo
    </p>
 
 ## Benchmarks
-We conducted several tests at different request rates per second (RPS), but had to drop further testing due to our hardware limitations.
+We conducted several tests at different request rates per second (RPS).<hr/>
 <img src = "Screenshots/20K.png"/>
-<p align = "right"> Throughput VS Time at 20,000 RPS </p>
+<p align = "center"> Throughput VS Time at 20,000 RPS </p><hr/>
+
+<img src = "Screenshots/25K.png">
+<p align = "center"> Throughput VS Time at 25,000 RPS </p><hr/>
+
+<img src = "Screenshots/27K.png"/>
+<p align = "center"> Throughput VS Time at 27,000 RPS </p><hr/>
+
+The tests had to be stopped here due to our hardware limitations but the trends we observed show us that the Bal.rs Load Balancer can handle much higher loads.
 
 ## Experiences
 > This is a compilation of experiences shared by the Bal.rs mentees
