@@ -168,6 +168,8 @@ This is a slightly large piece of code that ensures smooth functioning of the Lo
 
 ## Benchmarks
 We conducted several tests at different request rates per second (RPS), but had to drop further testing due to our hardware limitations.
+<img src = "Screenshots/20K.png"/>
+<p align = "right"> Throughput VS Time at 20,000 RPS </p>
 
 ## Experiences
 > This is a compilation of experiences shared by the Bal.rs mentees
