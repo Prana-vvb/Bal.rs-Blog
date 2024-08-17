@@ -177,6 +177,8 @@ This is a slightly large piece of code that ensures smooth functioning of the Lo
 
 *"This project came as a very pleasant surprise to me, as I had not applied for it. Learning a completely new language while working on a rather complicated project was very challenging indeed but also very satisfying. I got to meet and work with some really great people, and their support made the learning curve much smoother. In the end, the experience was truly memorable and I learned a lot"* - [**Pranav V Bhat**](https://github.com/Prana-vvb)
 
+<!-- "Working on a load balancer in Rust was a thrilling experience! 🚀 The language’s performance and safety features made managing concurrency and handling high traffic smooth. I enjoyed leveraging Rust’s robust type system to minimize bugs and ensure efficiency. The challenge of optimizing for speed and reliability was rewarding! ⚙️💪" - [ChatGPT](chatgpt.com)(Unofficial Collaborator)-->
+
 ## Next Steps and Resources
 - [Rust essentials](https://www.rust-lang.org/)
 - [Asynchronous Programming in Rust using Tokio](tokio.rs/tokio/tutorial/async)
