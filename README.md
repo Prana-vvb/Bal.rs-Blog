@@ -1,6 +1,6 @@
 # Building a simple Load Balancer in Rust
 Written By [Pranav V Bhat](github.com/Prana-vvb)  
-10 Aug 2024
+10 Aug 2024<hr/>
 
 ## Why do I need a Load Balancer?
 Let's say you have a few servers and are hosting a website. Great! Soon your website becomes popular and gets a lot of visitors daily. All well and good until your servers start to become overwhelmed with requests and die.
@@ -14,7 +14,7 @@ A Load Balancer distributes incoming network traffic and distributes them across
 
 A Load Balancer can be physical or a software. It can be further classified base on which layer of the [OSI model](https://en.wikipedia.org/wiki/OSI_model) they operate at.
 
-As part of the [Tilde 3.0 Summer mentorship program](https://homebrew.hsp-ec.xyz/posts/history/#Tilde), the [Bal.rs](https://github.com/homebrew-ec-foss/bal.rs) (Pronounced: `/ˈbɔːləz/`) team have built a simple L7 Load Balancer in Rust. Rust was chosen due to it's performance and safety while provding low level control over the system.
+As part of the [Tilde 3.0 Summer mentorship program](https://homebrew.hsp-ec.xyz/posts/history/#Tilde), the [Bal.rs](https://github.com/homebrew-ec-foss/bal.rs) (Pronounced: `/ˈbɔːləz/`) team have built a simple L7 Load Balancer in Rust. Rust was chosen due to it's performance and safety while provding low level control over the system.<hr/>
 
 ## Getting started with Bal.rs
 ### Prerequisites
