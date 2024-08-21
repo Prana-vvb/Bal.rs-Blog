@@ -1,6 +1,6 @@
 # Building a simple Load Balancer in Rust
 Written By [Pranav V Bhat](github.com/Prana-vvb)  
-10 Aug 2024
+10 Aug 2024<hr/>
 
 ## Why do I need a Load Balancer?
 Let's say you have a few servers and are hosting a website. Great! Soon your website becomes popular and gets a lot of visitors daily. All well and good until your servers start to become overwhelmed with requests and die.
@@ -14,7 +14,7 @@ A Load Balancer distributes incoming network traffic and distributes them across
 
 A Load Balancer can be physical or a software. It can be further classified base on which layer of the [OSI model](https://en.wikipedia.org/wiki/OSI_model) they operate at.
 
-As part of the [Tilde 3.0 Summer mentorship program](https://homebrew.hsp-ec.xyz/posts/history/#Tilde), the [Bal.rs](https://github.com/homebrew-ec-foss/bal.rs) (Pronounced: `/ˈbɔːləz/`) team have built a simple L7 Load Balancer in Rust. Rust was chosen due to it's performance and safety while provding low level control over the system.
+As part of the [Tilde 3.0 Summer mentorship program](https://homebrew.hsp-ec.xyz/posts/history/#Tilde), the [Bal.rs](https://github.com/homebrew-ec-foss/bal.rs) (Pronounced: `/ˈbɔːləz/`) team have built a simple L7 Load Balancer in Rust. Rust was chosen due to it's performance and safety while provding low level control over the system.<hr/>
 
 ## Getting started with Bal.rs
 ### Prerequisites
@@ -32,7 +32,7 @@ For a production-ready build, you can use:
 ```sh
 cargo build --release
 ```
-
+<hr/>
 ### Using the Application
 After building, the main executable will be located in `/target/debug` or `/target/release` based on the build command used.
 Navigate to the directory and type
@@ -48,7 +48,7 @@ cargo run help start
 for the same result.
 
 While you can configure the Load Balancer using the command line interface, more configuration options are available through the `config.yaml` file and multiple different config files can be created.  
-This feature enables the use of various configuration profiles without altering the original configuration. The desired profile can be specified through the CLI.
+This feature enables the use of various configuration profiles without altering the original configuration. The desired profile can be specified through the CLI.<hr/>
 
 ## Technical Details
 > Note that this includes only the `lb.rs` file which contains the actual Load Balancing code.
@@ -65,7 +65,7 @@ We have used Rust's [`tokio`](https://tokio.rs) crate to handle asynchronous pro
 </p>
 
 In this code snippet, we create a `TcpListener` instance to listen for incoming traffic and set it to listen on the address of the Load Balancer.  
-If the listener is bound to the Load Balancer successfully, we return the listener object for passing incoming requests to the `handle_request` function or else the error encountered is displayed.
+If the listener is bound to the Load Balancer successfully, we return the listener object for passing incoming requests to the `handle_request` function or else the error encountered is displayed.<hr/>
 
 ### Routing the Connections
 There are 3 functions dealing with client requests.
@@ -124,7 +124,7 @@ There are 3 functions dealing with client requests.
      <img src = "Screenshots/Send4.png"/>
    </p>
    
-   The server response body is then collected in chunks and appended to `full_body`. The complete response is then converted to `Bytes` and returned.
+   The server response body is then collected in chunks and appended to `full_body`. The complete response is then converted to `Bytes` and returned.<hr/>
 
 ### Fault Tolerence
 This is a slightly large piece of code that ensures smooth functioning of the Load Balancer. So, let's break it down.
@@ -164,7 +164,7 @@ This is a slightly large piece of code that ensures smooth functioning of the Lo
    Health checker reports as displayed in the terminal:
    <p align = "center">
      <img src = "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGkyeTM3eHAxdTB0aDVlcmwzN3Mwd3RxdnJ0N2IzYzl1NDlyN2JlYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/psU5B2R73mbf6YlMha/giphy.gif"/>
-   </p>
+   </p><hr/>
 
 ## Benchmarks
 We conducted several tests at different request rates per second (RPS).<hr/>
@@ -175,9 +175,9 @@ We conducted several tests at different request rates per second (RPS).<hr/>
 <p align = "center"> Throughput VS Time at 25,000 RPS </p><hr/>
 
 <img src = "Screenshots/27K.png"/>
-<p align = "center"> Throughput VS Time at 27,000 RPS </p><hr/>
+<p align = "center"> Throughput VS Time at 27,000 RPS </p>
 
-The tests had to be stopped here due to our hardware limitations but the trends we observed show us that the Bal.rs Load Balancer can handle much higher loads.
+The tests had to be stopped here due to our hardware limitations but the trends we observed show us that the Bal.rs Load Balancer can handle much higher loads.<hr/>
 
 ## Experiences
 > This is a compilation of experiences shared by the Bal.rs mentees
@@ -188,7 +188,7 @@ The tests had to be stopped here due to our hardware limitations but the trends 
 
 *"During the TILDE project, I collaborated on developing a user-friendly Load Balancer in Rust with multiple functionalities. This experience taught me valuable lessons in collaboration and problem-solving. It was enriching, as I met knowledgeable peers and seniors who inspired me to strive for more. Our mentors and seniors were incredibly supportive, providing valuable input for project improvements. I’m grateful to HSP for this opportunity."* - [**Rohan Cyriac**](https://github.com/rohancyriac029)
 
-*"This project came as a very pleasant surprise to me, as I had not applied for it. Learning a completely new language while working on a rather complicated project was very challenging indeed but also very satisfying. I got to meet and work with some really great people, and their support made the learning curve much smoother. In the end, the experience was truly memorable and I learned a lot"* - [**Pranav V Bhat**](https://github.com/Prana-vvb)
+*"This project came as a very pleasant surprise to me, as I had not applied for it. Learning a completely new language while working on a rather complicated project was very challenging indeed but also very satisfying. I got to meet and work with some really great people, and their support made the learning curve much smoother. In the end, the experience was truly memorable and I learned a lot"* - [**Pranav V Bhat**](https://github.com/Prana-vvb)<hr/>
 
 ## Next Steps and Resources
 - [Rust essentials](https://www.rust-lang.org/)
