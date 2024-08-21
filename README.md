@@ -32,6 +32,7 @@ For a production-ready build, you can use:
 ```sh
 cargo build --release
 ```
+<hr/>
 
 ### Using the Application
 After building, the main executable will be located in `/target/debug` or `/target/release` based on the build command used.
@@ -48,7 +49,7 @@ cargo run help start
 for the same result.
 
 While you can configure the Load Balancer using the command line interface, more configuration options are available through the `config.yaml` file and multiple different config files can be created.  
-This feature enables the use of various configuration profiles without altering the original configuration. The desired profile can be specified through the CLI.
+This feature enables the use of various configuration profiles without altering the original configuration. The desired profile can be specified through the CLI.<hr/>
 
 ## Technical Details
 > Note that this includes only the `lb.rs` file which contains the actual Load Balancing code.
@@ -65,7 +66,7 @@ We have used Rust's [`tokio`](https://tokio.rs) crate to handle asynchronous pro
 </p>
 
 In this code snippet, we create a `TcpListener` instance to listen for incoming traffic and set it to listen on the address of the Load Balancer.  
-If the listener is bound to the Load Balancer successfully, we return the listener object for passing incoming requests to the `handle_request` function or else the error encountered is displayed.
+If the listener is bound to the Load Balancer successfully, we return the listener object for passing incoming requests to the `handle_request` function or else the error encountered is displayed.<hr/>
 
 ### Routing the Connections
 There are 3 functions dealing with client requests.
@@ -124,7 +125,7 @@ There are 3 functions dealing with client requests.
      <img src = "Screenshots/Send4.png"/>
    </p>
    
-   The server response body is then collected in chunks and appended to `full_body`. The complete response is then converted to `Bytes` and returned.
+   The server response body is then collected in chunks and appended to `full_body`. The complete response is then converted to `Bytes` and returned.<hr/>
 
 ### Fault Tolerence
 This is a slightly large piece of code that ensures smooth functioning of the Load Balancer. So, let's break it down.
@@ -164,8 +165,8 @@ This is a slightly large piece of code that ensures smooth functioning of the Lo
    Health checker reports as displayed in the terminal:
    <p align = "center">
      <img src = "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGkyeTM3eHAxdTB0aDVlcmwzN3Mwd3RxdnJ0N2IzYzl1NDlyN2JlYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/psU5B2R73mbf6YlMha/giphy.gif"/>
-   </p>
-
+   </p><hr/>
+   
 ## Experiences
 > This is a compilation of experiences shared by the Bal.rs mentees
 
