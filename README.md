@@ -33,6 +33,7 @@ For a production-ready build, you can use:
 cargo build --release
 ```
 <hr/>
+
 ### Using the Application
 After building, the main executable will be located in `/target/debug` or `/target/release` based on the build command used.
 Navigate to the directory and type
@@ -51,7 +52,7 @@ While you can configure the Load Balancer using the command line interface, more
 This feature enables the use of various configuration profiles without altering the original configuration. The desired profile can be specified through the CLI.<hr/>
 
 ## Technical Details
-> Note that this includes only the `lb.rs` file which contains the actual Load Balancing code.
+> Note that this section covers only the `lb.rs` file which contains the actual Load Balancing code.
 
 There are 3 key components of our Load Balancer:
 - **Listener**: Listens for incoming HTTP requests.
